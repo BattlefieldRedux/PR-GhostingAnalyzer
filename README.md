@@ -2,6 +2,10 @@
 
 Project Reality: BF2 Ghosting Detection Tool. Uses _CD Hash_ and _Namehack_ logs to determine ghosting incidents using 3 different techniques. This project is licensed under the GNU General Public License v3.0.
 
+The _CD Hash_ log can usually be found at `admin/logs/cdhash.log`.
+
+The _Namehack_ log can usually be found in the server root directory as `namehack.log`.
+
 This tool should be used in conjunction with other gameplay analysis tools such as the Realitytracker, as any output from it is not definitive proof of ghosting. For example with level 0 incidents, the players could be playing together behind the same router and unless they are sitting on different teams and acting suspiciously, it is most likely a false-positive.
 
 ## Installation
