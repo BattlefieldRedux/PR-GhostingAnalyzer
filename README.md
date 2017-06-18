@@ -8,7 +8,7 @@ This tool should be used in conjunction with other gameplay analysis tools such 
 
 Download the latest version from the [releases page](https://github.com/vedler/PR-GhostingAnalyzer/releases).
 
-Alternatively you can clone or download the source code as ZIP and run `gradlew fatJar` in the project directory. The resulting _.jar_ file will be located at `build/libs/GhostingAnalyzer-0.0.1.jar`
+Alternatively you can clone or download the source code as ZIP and run `gradlew fatJar` in the project directory. The resulting _.jar_ file will be located at `build/libs/GhostingAnalyzer-0.0.1.jar`.
 
 [Java 8 is required.](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)
 
@@ -16,7 +16,7 @@ Alternatively you can clone or download the source code as ZIP and run `gradlew 
 
 This usage information can also be found by running `java -jar GhostingAnalyzer-x.x.x.jar [--help|-h]`.
 
-The tool is ran from the command-line terminal, using the following syntax: `java -jar GhostingAnalyzer-x.x.x.jar [options] {CD Hash log path} {Namehack log path}\" to run the application.`.
+The tool is ran from the command-line terminal, using the following syntax: `java -jar GhostingAnalyzer-x.x.x.jar [options] {CD Hash log path} {Namehack log path}`.
 
 ### Options
 
@@ -29,12 +29,12 @@ The tool is ran from the command-line terminal, using the following syntax: `jav
 * [-w|--output-weak] {path} - Output all user records separately matched by names, hashes and every IP used.
 
 * [-b|--bad-strings] - Use bad username string matching for PR versions up to and including v1.4.11.0.
-  * Extra characters at the end of the username were not accounted for in the CD hash log, i.e. searching for \"vedler\" was also matched to \"vedlerr\" if they both had the same CD hash.
+  * Extra characters at the end of the username were not accounted for in the CD hash log, i.e. searching for "vedler" was also matched to "vedlerr" if they both had the same CD hash.
 
 ### Examples
 
-`java -jar GhostingAnalyzer-0.0.1.jar \"/var/prbf2/1/admin/logs/cdhash.log\" \"/var/prbf2/1/namehack.log\"`
+`java -jar GhostingAnalyzer-0.0.1.jar "/var/prbf2/1/admin/logs/cdhash.log" \"/var/prbf2/1/namehack.log"`
 
-`java -jar GhostingAnalyzer-0.0.1.jar --level 1 \"/var/prbf2/1/admin/logs/cdhash.log\" \"/var/prbf2/1/namehack.log\"`
+`java -jar GhostingAnalyzer-0.0.1.jar --level 1 "/var/prbf2/1/admin/logs/cdhash.log" "/var/prbf2/1/namehack.log"`
 
-`java -jar GhostingAnalyzer-0.0.1.jar -s \"userrecords_strong.txt\" -l 2 --output-weak \"userrecords_weak.txt\" \"/var/prbf2/1/admin/logs/cdhash.log\" \"/var/prbf2/1/namehack.log\" > ghosting_incidents.txt`
+`java -jar GhostingAnalyzer-0.0.1.jar -s "userrecords_strong.txt" -l 2 --output-weak "userrecords_weak.txt" "/var/prbf2/1/admin/logs/cdhash.log" "/var/prbf2/1/namehack.log" > ghosting_incidents.txt`
