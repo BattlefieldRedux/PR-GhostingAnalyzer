@@ -18,33 +18,36 @@ public class GhostingAnalyzer {
             if (args[0].equals("--help") || args[0].equals("-h")) {
                 System.out.println("GhostingAnalyzer v0.0.1");
                 System.out.println("Author: Kristjan Vedler (NP vedler)");
+                System.out.println("https://github.com/vedler/");
+                System.out.println("This project is licensed under the GNU General Public License v3.0");
+				
                 System.out.println("Used to look for correlations between user records (hashes, IP's, usernames) and concurrently online players to help detect ghosting incidents.");
 
                 System.out.println();
 
                 System.out.println("Arguments:");
-                System.out.println("\t\"java -jar GhostingAnalyzer.jar [--help|-h]\" to see this dialogue.");
-                System.out.println("\t\"java -jar GhostingAnalyzer.jar [options] {CD Hash log path} {Namehack log path}\" to run the application.");
+                System.out.println("\t\"java -jar GhostingAnalyzer-x.x.x.jar [--help|-h]\" to see this dialogue.");
+                System.out.println("\t\"java -jar GhostingAnalyzer-x.x.x.jar [options] {CD Hash log path} {Namehack log path}\" to run the application.");
 
                 System.out.println();
 
                 System.out.println("Options:");
                 System.out.println("\t[-l|--level] {0-2} - Specify the user record building level. Default is 0. Every higher level also includes the lower levels for search criteria.");
                 System.out.println("\t\t0 - Check if there are two concurrent players playing from one IP.");
-                System.out.println("\t\t1 - Check if a player is online on two of his accounts at the same time, matched by name and CD Hash.");
-                System.out.println("\t\t2 - Check if there is a player that matches two concurrently connected IPs from which a single player has connected from in the past.");
+                System.out.println("\t\t1 - Check if a player is online on two of his accounts at the same time, matched by name and CD Hash (i.e. this user has logged in with the same account on two computers and both of those computers are connected to the server at the same time)");
+                System.out.println("\t\t2 - Check if there are two players on the server, who have at some point in the past both used the same IP at any given time.");
 
                 System.out.println("\t[-s|--output-strong] {path} - Output all user records separately matched by names and hashes.");
                 System.out.println("\t[-w|--output-weak] {path} - Output all user records separately matched by names, hashes and every IP used.");
 
                 System.out.println("\t[-b|--bad-strings] - Use bad username string matching for PR versions up to and including v1.4.11.0.");
-                System.out.println("\t\tExtra characters at the end of the username were not accounted for in the CD hash log, i.e. searching for \"vedler\" was also matched to vedlerr if they both had the same CD hash.");
+                System.out.println("\t\tExtra characters at the end of the username were not accounted for in the CD hash log, i.e. searching for \"vedler\" was also matched to \"vedlerr\" if they both had the same CD hash.");
 
                 System.out.println();
 
-                System.out.println("\tExample 1: java -jar GhostingAnalyzer.jar \"/var/prbf2/1/admin/logs/cdhash.log\" \"/var/prbf2/1/namehack.log\"");
-                System.out.println("\tExample 2: java -jar GhostingAnalyzer.jar --level 1 \"/var/prbf2/1/admin/logs/cdhash.log\" \"/var/prbf2/1/namehack.log\"");
-                System.out.println("\tExample 3: java -jar GhostingAnalyzer.jar -s \"/var/prbf2/1/userrecords_strong.txt\" -l 3 --output-weak \"/var/prbf2/1/userrecords_weak.txt\" \"/var/prbf2/1/admin/logs/cdhash.log\" \"/var/prbf2/1/namehack.log\"");
+                System.out.println("\tExample 1: java -jar GhostingAnalyzer-0.0.1.jar \"/var/prbf2/1/admin/logs/cdhash.log\" \"/var/prbf2/1/namehack.log\"");
+                System.out.println("\tExample 2: java -jar GhostingAnalyzer-0.0.1.jar --level 1 \"/var/prbf2/1/admin/logs/cdhash.log\" \"/var/prbf2/1/namehack.log\"");
+                System.out.println("\tExample 3: java -jar GhostingAnalyzer-0.0.1.jar -s \"userrecords_strong.txt\" -l 2 --output-weak \"userrecords_weak.txt\" \"/var/prbf2/1/admin/logs/cdhash.log\" \"/var/prbf2/1/namehack.log\" > ghosting_incidents.txt");
             }
         } else if (args.length >= 2) {
 
@@ -59,7 +62,7 @@ public class GhostingAnalyzer {
 
                         // Check if there enough room for option value and two paths
                         if (i >= args.length-3) {
-                            System.out.println("Incorrect arguments. Check \"java -jar GhostingAnalyzer.jar --help\" for more info.");
+                            System.out.println("Incorrect arguments. Check \"java -jar GhostingAnalyzer-x.x.x.jar --help\" for more info.");
                             return;
                         }
 
@@ -67,7 +70,7 @@ public class GhostingAnalyzer {
                             config.setLevel(Integer.valueOf(args[i+1]));
                             i++;
                         } catch (NumberFormatException e) {
-                            System.out.println("Incorrect arguments. Check \"java -jar GhostingAnalyzer.jar --help\" for more info.");
+                            System.out.println("Incorrect arguments. Check \"java -jar GhostingAnalyzer-x.x.x.jar --help\" for more info.");
                             return;
                         }
 
@@ -76,7 +79,7 @@ public class GhostingAnalyzer {
                     case "--output-weak":
 
                         if (i >= args.length-3) {
-                            System.out.println("Incorrect arguments. Check \"java -jar GhostingAnalyzer.jar --help\" for more info.");
+                            System.out.println("Incorrect arguments. Check \"java -jar GhostingAnalyzer-x.x.x.jar --help\" for more info.");
                             return;
                         }
 
@@ -87,7 +90,7 @@ public class GhostingAnalyzer {
                     case "--output-strong":
 
                         if (i >= args.length-3) {
-                            System.out.println("Incorrect arguments. Check \"java -jar GhostingAnalyzer.jar --help\" for more info.");
+                            System.out.println("Incorrect arguments. Check \"java -jar GhostingAnalyzer-x.x.x.jar --help\" for more info.");
                             return;
                         }
 
@@ -99,7 +102,7 @@ public class GhostingAnalyzer {
                         config.setBadStringMatching(true);
                         break;
                     default:
-                        System.out.println("Incorrect arguments. Check \"java -jar GhostingAnalyzer.jar --help\" for more info.");
+                        System.out.println("Incorrect arguments. Check \"java -jar GhostingAnalyzer-x.x.x.jar --help\" for more info.");
                         return;
                 }
             }
@@ -123,7 +126,7 @@ public class GhostingAnalyzer {
             execute(config);
 
         } else {
-            System.out.println("Incorrect arguments. Check \"java -jar GhostingAnalyzer.jar --help\" for more info.");
+            System.out.println("Incorrect arguments. Check \"java -jar GhostingAnalyzer-x.x.x.jar --help\" for more info.");
         }
     }
 
