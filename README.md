@@ -4,11 +4,11 @@ Project Reality: BF2 Ghosting Detection Tool. Uses _CD Hash_ and _Namehack_ logs
 
 ## Installation
 
-Clone or download the source code as ZIP and run `gradlew fatJar` in the project directory. The resulting _.jar_ file will be located at `build/libs/GhostingAnalyzer-0.0.1.jar`
-
-Alternatively you can download the latest version from [here]().
-
 [Java 8 is required.](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)
+
+Download the latest version from the [releases page](https://github.com/vedler/PR-GhostingAnalyzer/releases).
+
+Alternatively you can clone or download the source code as ZIP and run `gradlew fatJar` in the project directory. The resulting _.jar_ file will be located at `build/libs/GhostingAnalyzer-0.0.1.jar`
 
 ## Usage
 
