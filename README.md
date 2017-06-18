@@ -2,6 +2,8 @@
 
 Project Reality: BF2 Ghosting Detection Tool. Uses _CD Hash_ and _Namehack_ logs to determine ghosting incidents using 3 different techniques. This project is licensed under the GNU General Public License v3.0.
 
+So far only compatible with the Linux IP tables namehack solution. Not too difficult to write the regex and the result parsing around to work with other log formats.
+
 The _CD Hash_ log can usually be found at `admin/logs/cdhash.log`
 
 The _Namehack_ log can usually be found in the server root directory as `namehack.log`
