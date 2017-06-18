@@ -41,4 +41,4 @@ The tool is ran from the command-line terminal, using the following syntax: `jav
 
 `java -jar GhostingAnalyzer-0.0.1.jar --level 1 "/var/prbf2/1/admin/logs/cdhash.log" "/var/prbf2/1/namehack.log"`
 
-`java -jar GhostingAnalyzer-0.0.1.jar -s "userrecords_strong.txt" -l 2 --output-weak "userrecords_weak.txt" "/var/prbf2/1/admin/logs/cdhash.log" "/var/prbf2/1/namehack.log" > ghosting_incidents.txt`
+`java -jar GhostingAnalyzer-0.0.1.jar -b -s "userrecords_strong.txt" -l 2 --output-weak "userrecords_weak.txt" "/var/prbf2/1/admin/logs/cdhash.log" "/var/prbf2/1/namehack.log" > ghosting_incidents.txt`
