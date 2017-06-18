@@ -20,15 +20,15 @@ The tool is ran from the command-line terminal, using the following syntax: `jav
 
 ### Options
 
-* [-l|--level] {0-2} - Specify the user record building level. Default is 0. Every level also includes the prior levels for search criteria.
+* `[-l|--level] {0-2}` - Specify the user record building level. Default is 0. Every level also includes the prior levels for search criteria.
   * Level 0: Check if there are two concurrent players playing from one IP.
   * Level 1: Check if a player is online on two of his accounts at the same time, matched by name and CD Hash (i.e. this user has logged in with the same account (username) on two computers (CD Hash) and both of those computers are connected to the server at the same time)
   * Level 2: Check if there are two players on the server, who have at some point in the past both used the same IP at any given time.
 
-* [-s|--output-strong] {path} - Output all user records separately matched by names and hashes.
-* [-w|--output-weak] {path} - Output all user records separately matched by names, hashes and every IP used.
+* `[-s|--output-strong] {path}` - Output all user records separately matched by names and hashes.
+* `[-w|--output-weak] {path}` - Output all user records separately matched by names, hashes and every IP used.
 
-* [-b|--bad-strings] - Use bad username string matching for PR versions up to and including v1.4.11.0.
+* `[-b|--bad-strings]` - Use bad username string matching for PR versions up to and including v1.4.11.0.
   * Extra characters at the end of the username were not accounted for in the CD hash log, i.e. searching for "vedler" was also matched to "vedlerr" if they both had the same CD hash.
 
 ### Examples
