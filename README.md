@@ -39,7 +39,7 @@ The tool is ran from the command-line terminal, using the following syntax: `jav
 
 ### Examples
 
-`java -jar GhostingAnalyzer-0.0.1.jar "/var/prbf2/1/admin/logs/cdhash.log" \"/var/prbf2/1/namehack.log"`
+`java -jar GhostingAnalyzer-0.0.1.jar "/var/prbf2/1/admin/logs/cdhash.log" "/var/prbf2/1/namehack.log"`
 
 `java -jar GhostingAnalyzer-0.0.1.jar --level 1 "/var/prbf2/1/admin/logs/cdhash.log" "/var/prbf2/1/namehack.log"`
 
