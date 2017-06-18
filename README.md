@@ -2,9 +2,9 @@
 
 Project Reality: BF2 Ghosting Detection Tool. Uses _CD Hash_ and _Namehack_ logs to determine ghosting incidents using 3 different techniques. This project is licensed under the GNU General Public License v3.0.
 
-The _CD Hash_ log can usually be found at `admin/logs/cdhash.log`.
+The _CD Hash_ log can usually be found at `admin/logs/cdhash.log`
 
-The _Namehack_ log can usually be found in the server root directory as `namehack.log`.
+The _Namehack_ log can usually be found in the server root directory as `namehack.log`
 
 This tool should be used in conjunction with other gameplay analysis tools such as the Realitytracker, as any output from it is not definitive proof of ghosting. For example with level 0 incidents, the players could be playing together behind the same router and unless they are sitting on different teams and acting suspiciously, it is most likely a false-positive.
 
@@ -12,15 +12,15 @@ This tool should be used in conjunction with other gameplay analysis tools such 
 
 Download the latest version from the [releases page](https://github.com/vedler/PR-GhostingAnalyzer/releases).
 
-Alternatively you can clone or download the source code as ZIP and run `gradlew fatJar` in the project directory. The resulting _.jar_ file will be located at `build/libs/GhostingAnalyzer-0.0.1.jar`.
+Alternatively you can clone or download the source code as ZIP and run `gradlew fatJar` in the project directory. The resulting _.jar_ file will be located at `build/libs/GhostingAnalyzer-0.0.1.jar`
 
 [Java 8 is required.](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)
 
 ## Usage
 
-This usage information can also be found by running `java -jar GhostingAnalyzer-x.x.x.jar [--help|-h]`.
+This usage information can also be found by running `java -jar GhostingAnalyzer-x.x.x.jar [--help|-h]`
 
-The tool is ran from the command-line terminal, using the following syntax: `java -jar GhostingAnalyzer-x.x.x.jar [options] {CD Hash log path} {Namehack log path}`.
+The tool is ran from the command-line terminal, using the following syntax: `java -jar GhostingAnalyzer-x.x.x.jar [options] {CD Hash log path} {Namehack log path}`
 
 ### Options
 
